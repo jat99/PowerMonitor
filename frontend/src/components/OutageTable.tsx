@@ -159,11 +159,10 @@ import {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">ID</TableHead>
+                <TableHead>Status</TableHead>
                 <TableHead>Start Time</TableHead>
                 <TableHead>End Time</TableHead>
                 <TableHead>Duration</TableHead>
-                <TableHead>Status</TableHead>
                 <TableHead>Voltage Before</TableHead>
                 <TableHead>Voltage After</TableHead>
               </TableRow>
@@ -171,12 +170,6 @@ import {
             <TableBody>
               {data.map((outage) => (
                 <TableRow key={outage.id}>
-                  <TableCell className="font-medium">{outage.id}</TableCell>
-                  <TableCell>{formatDateTime(outage.startTime)}</TableCell>
-                  <TableCell>
-                    {outage.endTime ? formatDateTime(outage.endTime) : "-"}
-                  </TableCell>
-                  <TableCell>{outage.duration}</TableCell>
                   <TableCell>
                     <span
                       className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
@@ -188,6 +181,11 @@ import {
                       {outage.status}
                     </span>
                   </TableCell>
+                  <TableCell>{formatDateTime(outage.startTime)}</TableCell>
+                  <TableCell>
+                    {outage.endTime ? formatDateTime(outage.endTime) : "-"}
+                  </TableCell>
+                  <TableCell>{outage.duration}</TableCell>
                   <TableCell>{outage.voltageBefore}V</TableCell>
                   <TableCell>
                     {outage.voltageAfter ? `${outage.voltageAfter}V` : "-"}
